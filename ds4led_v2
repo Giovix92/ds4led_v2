@@ -1,0 +1,18 @@
+#!/bin/bash
+
+LED_ID="0005:054C:09CC.*"
+BLUE="/sys/class/leds/$LED_ID:blue"
+GREEN="/sys/class/leds/$LED_ID:green"
+RED="/sys/class/leds/$LED_ID:red"
+
+chmod -R 777 $BLUE
+chmod -R 777 $GREEN
+chmod -R 777 $RED
+
+read -p 'Enter blue value: ' bluevar
+read -p 'Enter green value: ' greenvar
+read -p 'Enter red value: ' redvar
+
+echo $bluevar > $BLUE/brightness
+echo $greenvar > $GREEN/brightness
+echo $redvar > $RED/brightness
